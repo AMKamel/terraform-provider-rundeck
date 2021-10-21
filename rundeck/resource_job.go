@@ -266,7 +266,7 @@ func resourceRundeckJob() *schema.Resource {
 							Type:     schema.TypeBool,
 							Optional: true,
 						},
-            "storage_path": {
+						"storage_path": {
 							Type:     schema.TypeString,
 							Optional: true,
 						},
