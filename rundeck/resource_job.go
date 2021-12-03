@@ -595,6 +595,7 @@ func jobFromResourceData(d *schema.ResourceData) (*JobDetail, error) {
 		ProjectName:               d.Get("project_name").(string),
 		Description:               d.Get("description").(string),
 		ExecutionEnabled:          d.Get("execution_enabled").(bool),
+		ValueIsExposedToScripts    d.Get("exposed_to_scripts").(bool),
 		Timeout:                   d.Get("timeout").(string),
 		ScheduleEnabled:           d.Get("schedule_enabled").(bool),
 		TimeZone:                  d.Get("time_zone").(string),
@@ -809,6 +810,9 @@ func jobToResourceData(job *JobDetail, d *schema.ResourceData) error {
 		return err
 	}
 	if err := d.Set("execution_enabled", job.ExecutionEnabled); err != nil {
+		return err
+	}
+	if err := d.Set("exposed_to_scripts", job.ValueIsExposedToScripts); err != nil {
 		return err
 	}
 	if err := d.Set("schedule_enabled", job.ScheduleEnabled); err != nil {
