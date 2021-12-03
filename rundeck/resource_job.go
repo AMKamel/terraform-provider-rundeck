@@ -265,6 +265,7 @@ func resourceRundeckJob() *schema.Resource {
 						"exposed_to_scripts": {
 							Type:     schema.TypeBool,
 							Optional: true,
+              Default:  true,
 						},
 						"storage_path": {
 							Type:     schema.TypeString,
