@@ -46,6 +46,12 @@ func resourceRundeckJob() *schema.Resource {
 				Default:  true,
 			},
 
+      "exposed_to_scripts": {
+        Type:     schema.TypeBool,
+        Optional: true,
+        Default:  true,
+      },
+
 			"log_level": {
 				Type:     schema.TypeString,
 				Optional: true,
@@ -595,7 +601,7 @@ func jobFromResourceData(d *schema.ResourceData) (*JobDetail, error) {
 		ProjectName:               d.Get("project_name").(string),
 		Description:               d.Get("description").(string),
 		ExecutionEnabled:          d.Get("execution_enabled").(bool),
-		ValueIsExposedToScripts:    d.Get("exposed_to_scripts").(bool),
+		ValueIsExposedToScripts:   d.Get("exposed_to_scripts").(bool),
 		Timeout:                   d.Get("timeout").(string),
 		ScheduleEnabled:           d.Get("schedule_enabled").(bool),
 		TimeZone:                  d.Get("time_zone").(string),
